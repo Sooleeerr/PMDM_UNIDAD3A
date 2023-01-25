@@ -25,9 +25,7 @@ class BlankFragment : Fragment() {
             findNavController().navigate(R.id.action_blankFragment_to_login2)
         }
 
-        view.findViewById<Button>(R.id.btnIrRegistro).setOnClickListener {
-            findNavController().navigate(R.id.action_blankFragment_to_registro)
-        }
+
     }
 
 

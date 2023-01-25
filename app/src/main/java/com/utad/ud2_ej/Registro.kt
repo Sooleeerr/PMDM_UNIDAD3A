@@ -52,7 +52,7 @@ class Registro : Fragment() {
         /*view?.findViewById<Button>(R.id.btn_alta_registro)?.setOnClickListener {
             findNavController().navigate(R.id.action_registro_to_homeFragment2)
         }*/
-
+    /*
         var registroEmail = view.findViewById<EditText>(R.id.id_Reg_email)
         var registroPassword = view.findViewById<EditText>(R.id.id_reg_password)
         var registroNombre = view.findViewById<EditText>(R.id.id_Reg_nombre)
@@ -115,7 +115,7 @@ class Registro : Fragment() {
             }
 
 
-        }
+        }*/
     }
 
     companion object {

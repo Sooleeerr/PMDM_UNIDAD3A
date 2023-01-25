@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +24,7 @@ class HomeFragment2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var contacts: ArrayList<Contact>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +33,7 @@ class HomeFragment2 : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -50,28 +54,26 @@ class HomeFragment2 : Fragment() {
         val argApellidos=args.apellidos
         val argFechaNac=args.fechaNacimiento
 
+        val rvContacts = view.findViewById<View>(R.id.rvContacts) as RecyclerView
+        // Initialize contacts
+        contacts = Contact.createContactsList(20)
+        // Create adapter passing in the sample user data
+        val adapter = ContactsAdapter(contacts)
+        // Attach the adapter to the recyclerview to populate items
+        rvContacts.adapter = adapter
+        // Set layout manager to position the items
+        rvContacts.layoutManager = LinearLayoutManager(this.context)
+
         if (argOrigenLogin){
             view.findViewById<TextView>(R.id.id_text_email).text = argEmail
-            view.findViewById<TextView>(R.id.id_text_appelido).visibility =View.INVISIBLE
-            view.findViewById<TextView>(R.id.id_text_nombre).visibility =View.INVISIBLE
-            view.findViewById<TextView>(R.id.id_text_fechanac).visibility =View.INVISIBLE
-            view.findViewById<TextView>(R.id.textView9).visibility =View.INVISIBLE
-            view.findViewById<TextView>(R.id.textView11).visibility =View.INVISIBLE
-            view.findViewById<TextView>(R.id.textView13).visibility =View.INVISIBLE
+
 
         } else {
-            view.findViewById<TextView>(R.id.id_text_appelido).visibility =View.VISIBLE
-            view.findViewById<TextView>(R.id.id_text_nombre).visibility =View.VISIBLE
-            view.findViewById<TextView>(R.id.id_text_fechanac).visibility =View.VISIBLE
-            view.findViewById<TextView>(R.id.textView9).visibility =View.VISIBLE
-            view.findViewById<TextView>(R.id.textView11).visibility =View.VISIBLE
-            view.findViewById<TextView>(R.id.textView13).visibility =View.VISIBLE
             view.findViewById<TextView>(R.id.id_text_email).text = argEmail
-            view.findViewById<TextView>(R.id.id_text_appelido).text = argApellidos
-            view.findViewById<TextView>(R.id.id_text_nombre).text = argNombre
-            view.findViewById<TextView>(R.id.id_text_fechanac).text = argFechaNac
 
         }
+
+
     }
 
     companion object {

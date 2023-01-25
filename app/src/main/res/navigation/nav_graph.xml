@@ -8,15 +8,11 @@
     <fragment
         android:id="@+id/blankFragment"
         android:name="com.utad.ud2_ej.BlankFragment"
-        android:label="Bienvenido a la Aplicación"
+        android:label="Gestión de empleados"
         tools:layout="@layout/fragment_blank">
         <action
             android:id="@+id/action_blankFragment_to_login2"
             app:destination="@id/login" />
-        <action
-            android:id="@+id/action_blankFragment_to_registro"
-            app:destination="@id/registro"
-            />
     </fragment>
     <fragment
         android:id="@+id/login"
@@ -29,22 +25,9 @@
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/registro"
-        android:name="com.utad.ud2_ej.Registro"
-        android:label="Registrate en nuestra APP"
-        tools:layout="@layout/fragment_registro">
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_registro_to_homeFragment2"
-            app:destination="@id/homeFragment2"
-            app:exitAnim="@android:anim/fade_out" />
-    </fragment>
-    <fragment
         android:id="@+id/homeFragment2"
         android:name="com.utad.ud2_ej.HomeFragment2"
-        android:label="Home"
+        android:label="Lista de empleados"
         tools:layout="@layout/fragment_home2" >
         <argument
             android:name="origen_login"
